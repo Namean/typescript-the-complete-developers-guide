@@ -10,6 +10,12 @@ There are a few project in the course, they can be found at the following:
 
 ### Maps
 
+- [Maps](https://github.com/Namean/maps)
+    - Uses Google Maps to display, user defined objects.
+    - Demonstrates use of dependency inversion via an interface called Mappable
+    - Which allows any object that satisfies, i.e. implements the interface to be display on the map.
+    - Uses Parcel to transpile and bundle TypeScript code into the browser
+
 
 
 ### Sort
