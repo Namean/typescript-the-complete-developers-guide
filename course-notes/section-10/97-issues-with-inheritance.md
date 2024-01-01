@@ -1,3 +1,3 @@
 # TypeScript: The Complete Developer's Guide
 
-## Lesson 88. Extracting Key Logic
+## Lesson 97. Issues with Inheritance
