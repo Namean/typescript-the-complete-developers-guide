@@ -1,33 +1,152 @@
 [TypeScript: The Complete Developer's Guide](https://www.udemy.com/course/typescript-the-complete-developers-guide/)
 
-
 There are a few project in the course, they can be found at the following:
 
 - Projects:
   - [Maps](https://github.com/Namean/maps)
   - [Sort](https://github.com/Namean/sort)
 
-
 ### Maps
 
 - [Maps](https://github.com/Namean/maps)
-    - Uses Google Maps to display, user defined objects.
-    - Demonstrates use of dependency inversion via an interface called Mappable
-    - Which allows any object that satisfies, i.e. implements the interface to be display on the map.
-    - Uses Parcel to transpile and bundle TypeScript code into the browser
-
-
+  - Uses Google Maps to display, user defined objects.
+  - Demonstrates use of dependency inversion via an interface called Mappable
+  - Which allows any object that satisfies, i.e. implements the interface to be display on the map.
+  - Uses Parcel to transpile and bundle TypeScript code into the browser
 
 ### Sort
 
+This project demonstrates how an interface to an a simple algorithm can be used to save time and provide an abstraction from the complexity of implementing a sorting algorithm for each data structure.
 
+For example we have three data structures that we want to be able to sort.
+
+- NumbersCollection
+- CharactersCollection
+- Linked List
+
+Initially we take a "Bad Approach" that takes in a collection of numbers, and sorts them. However requirements change and we need to be able to sort strings as well. Due to the immutaiblity of strings, we may not sort them in the same way we sorted the collection of numbers. Therefore we must have a different approach to sorting strings than collections of numbers.
+
+One way we would approach this is adding a control flow statement, checking the type of collection
+
+```ts
+
+
+  for (let j = 0; j < length - (i - 1); j++) {
+        // All of this only works if collection is number[]
+        // If collection is an array of numbers
+        if (this.collection instanceof Array) {
+          if (this.collection[j] > this.collection[j + 1]) {
+            const leftHand = this.collection[j];
+            this.collection[j] = this.collection[j + 1];
+            this.collection[j + 1] = leftHand;
+          }
+        }
+
+        // Only going to work if collection is a string
+        // If collection is a string, do this logic instead:
+        // ~~~logic to compare and swap characters in
+        if (typeof this.collection === 'string') {
+
+        }
+      }
+    }
+  }
+
+```
+
+The reason this is a bad is approach is the same as for a previous project, where we had to update the Union for each new type we needed to support, where the solution to such problem is to invert the dependency using an interface.
+
+"
+The reason it is bad is that if we ever want to add support for sorting some other type of data collection,
+
+we would have to come back to our sorter and start to really change a bunch of data in here.
+
+If we eventually end up with like 50 different types of things that were supposed to be sortable, well,
+
+then all of a sudden we're going to have 50 nested if statements inside of here all essentially maybe"
+
+In the last video we spoke about why this was not a great approach.
+
+Because it results in having to update Sort.sort() with new types that need to be sorted.
+
+Which can be solved with depenedency inversion, by creating an interface, and having each type implement "Sortable"
+
+- Bubble Sort Algorithm
+- Must be customized to the data structure we are working with
+
+- Operation 1 - Comparison must be customized between two elements
+  -Operation2 - The swapping logic has to be customized.
+
+The entire key to everything
+
+Around this bubble sort algorithm and the whole reason that it doens't work that well with these very different types is that we've got two operators that are going to have to be customized depending upon the data struture we are working with.
+
+- extract the comparison logic into a helper function in a different class.
+- we're also going to extract the swapping logic into a different class as well.
+
+So our sorter isn't going to contain a direct reference to an array of numbers.
+
+Instead we're going to have our sorter have a direct reference to some new thing that we're going to create called a NumbersCollection.
+
+```ts
+export class NumbersCollection {
+  constructor(public data: number[]) {}
+
+  // methods
+
+  get length(): number {
+    return this.data.length;
+  }
+
+  compare(leftIndex: number, rightIndex: number): boolean {
+    return this.data[leftIndex] > this.data[rightIndex];
+  }
+
+  swap(leftIndex: number, rightIndex: number): void {
+    const leftHand = this.data[leftIndex];
+    this.data[leftIndex] = this.data[rightIndex];
+    this.data[rightIndex] = leftHand;
+  }
+}
+```
+
+## Lesson 90. The Big Reveal
+
+Its time to figure out how the project is going to be in its final form.
+
+So the last thing we really need to fix, is that sorter can only take a numbers.
+
+We need to make sure that Sorter can take other types of collections as well.
+
+In the sorter class we're going to define an interface, and this interface is going to provide some instructions to other classes on our project.
+
+On how they can be eligible for sorting.
+
+The thing we are trying to sort: collection
+
+On collection we need three different things
+
+- length
+- compare method
+- swap method
+
+Characters collection is going to wrap up a string that we want to sort in order to sort that string.
+
+All you and I have to do is define a swap method that's going to swap two characters inside that string.
+
+A compare method that's going to compare two characters inside that string.
+
+And a length property that says how long that string is.
+
+interface Sortable {
+length: number;
+compare(leftIndex: number, rightIndex: number): boolean;
+swap(leftIndex: number, rightIndex: number): void;
+}
 
 The goal of this project is to take each of these different data structures and sort them
 from least to greatest.
 
-
 Array of numbers [10, 5, 18, -3] ---> [-3, 5, 10, 18]
 String 'PoaJB' ---> 'aBJoP'
 LinkedList [10->-3->27->5] ---> [-3->5->10->27]
-
-
