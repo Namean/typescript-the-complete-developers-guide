@@ -1,3 +1,4 @@
+![TypeScript: The Complete Developer's Guide](https://img-b.udemycdn.com/course/240x135/2337318_abfd_5.jpg "Title")
 [TypeScript: The Complete Developer's Guide](https://www.udemy.com/course/typescript-the-complete-developers-guide/)
 
 There are a few project in the course, they can be found at the following:
