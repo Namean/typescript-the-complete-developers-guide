@@ -17,6 +17,24 @@ There are a few project in the course, they can be found at the following:
 
 ### Sort
 
+| Complete |                  Lesson Name                  |  asdf |
+| -------- | :-------------------------------------------: | ----: |
+| True     |             87. Why is This Bad?              | $1600 |
+| True     |           88. Extracting Key Logic            |   $12 |
+| True     |    89. Separating Swapping and comparison     |    $1 |
+| True     |              90. The Big Reveal               |    $1 |
+| True     |           91. Interface Definition            |    $1 |
+| True     |       92. Sorting arbitrary collections       |       |
+| True     |        93. Linked List Implementation         |       |
+| True     |        94. Completed Linked List Code         |       |
+| True     |             95. Just One More Fix             |       |
+| True     |        96. Integrating the Sort Method        |       |
+| True     |          97. Issues with Inheritance          |       |
+| True     |             98. Abstract Classes              |       |
+| True     |         99. Why Use Abstract Classes          |       |
+| True     | 100. Solving All Issues with Abstract classes |       |
+| True     |      101. Interfaces vs Abstract classes      |       |
+
 This project demonstrates how an interface to an a simple algorithm can be used to save time and provide an abstraction from the complexity of implementing a sorting algorithm for each data structure.
 
 For example we have three data structures that we want to be able to sort.
