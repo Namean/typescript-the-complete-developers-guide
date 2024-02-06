@@ -1,6 +1,6 @@
-# TypeScript: The Complete Developer's Guide
+# Section 11: Reusable Code
 
-## Section 11: Reusable Code
+## TypeScript: The Complete Developer's Guide
 
 Section 11 begins on lesson 102 Project Overview
 There are 36 Lessions
