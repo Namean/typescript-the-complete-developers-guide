@@ -4,6 +4,8 @@
 There are a few project in the course, they can be found at the following:
 
 - Projects:
+  - [fetchjson](https://github.com/Namean/fetchjson)
+  - [features](https://github.com/Namean/features)
   - [Maps](https://github.com/Namean/maps)
   - [Sort](https://github.com/Namean/sort)
   - [Stats](https://github.com/Namean/stats)
